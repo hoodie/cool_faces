@@ -2,14 +2,10 @@ extern crate rand;
 
 use rand::random;
 
-macro_rules! choose {
-    ( $x:expr ) => {
-        {
-            let length = $x.len() as f32;
+fn choose(faces:&[&str]) -> String {
+            let length = faces.len() as f32;
             let idx = rand::random::<f32>() * length;
-            $x[idx.floor() as usize]
-        }
-    };
+            faces[idx.floor() as usize].to_string()
 }
 
 pub fn angry() -> String {
@@ -37,7 +33,7 @@ pub fn angry() -> String {
 
     ];
 
-    choose!(faces).to_string()
+    choose(&faces)
 }
 
 pub fn confused() -> String {
@@ -51,7 +47,7 @@ pub fn confused() -> String {
         "ʅʕ•ᴥ•ʔʃ",
     ];
 
-    choose!(faces).to_string()
+    choose(&faces)
 }
 
 
@@ -61,7 +57,7 @@ pub fn disappointed() -> String {
         "( ︶︿︶)",
         "(；一_一)",
     ];
-    choose!(faces).to_string()
+    choose(&faces)
 }
 
 pub fn excited() -> String {
@@ -82,7 +78,7 @@ pub fn excited() -> String {
         "ヾ(⌐■_■)ノ",
     ];
 
-    choose!(faces).to_string()
+    choose(&faces)
 }
 
 pub fn happy() -> String {
@@ -112,7 +108,7 @@ pub fn happy() -> String {
       "° ͜ʖ ͡°",
     ];
 
-    choose!(faces).to_string()
+    choose(&faces)
 }
 
 pub fn meh() -> String {
@@ -122,7 +118,7 @@ pub fn meh() -> String {
         "(-.-)",
     ];
 
-    choose!(faces).to_string()
+    choose(&faces)
 }
 
 pub fn sad() -> String {
@@ -135,7 +131,7 @@ pub fn sad() -> String {
         ":("
     ];
 
-    choose!(faces).to_string()
+    choose(&faces)
 }
 
 pub fn deal_with_it() -> String {
@@ -151,7 +147,7 @@ pub fn deal_with_it() -> String {
 //         sad
 //     ];
 //
-//     choose!(fns)()
+//     choose(&fns)
 // }
 
 #[test]
